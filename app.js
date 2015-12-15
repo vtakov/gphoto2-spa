@@ -21,6 +21,12 @@ function exec(command, callback) {
     }
 }
 
+app.get('*', sendIndex);
+
+function sendIndex(req, res) {
+    res.sendFile('./public/index.html');
+}
+
 app.get('/', function (req, res) {
     exec('gphoto2 --capture-image', oo);
     
