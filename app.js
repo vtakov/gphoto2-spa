@@ -21,15 +21,16 @@ function exec(command, callback) {
     }
 }
 
-app.get('*', sendIndex);
+app.get('/', sendIndex);
 
 function sendIndex(req, res) {
     res.sendFile('./public/index.html');
 }
 
-app.get('/', function (req, res) {
-    exec('gphoto2 --capture-image', oo);
-    
+app.get('/date', function (req, res) {
+    //exec('gphoto2 --capture-image', oo);
+    exec('date', oo);
+
     function oo(obj) {
         res.send(obj);
     }
